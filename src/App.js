@@ -13,7 +13,7 @@ function App() {
     <div className="container">
       <div className='app'>
         <Random getNumberReward={handleGetRewardNumber} listNumber={ numberArr}/>
-      <RewardList listNumber={ numberArr}/>
+        <RewardList listNumber={ numberArr}/>
       </div>
     </div>
   );

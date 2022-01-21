@@ -2,7 +2,6 @@ import React from 'react';
 
 function RewardList(props) {
   const { listNumber } = props;
-  console.log('listNumber',listNumber)
   return (
     <div className='random_list'>
       <h2 className='title'>

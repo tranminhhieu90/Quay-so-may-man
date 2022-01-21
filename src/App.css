@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Charmonman:wght@400;700&family=Major+Mono+Display&family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&family=Tourney:ital,wght@0,100;0,200;1,100;1,200&display=swap');
 * {
   font-family: 'Montserrat';
 }
@@ -36,6 +37,8 @@ ul, li {
   color: #fff93d;
   font-size: 32px;
   margin: 10px;
+   font-family: "Charmonman";
+   text-transform: uppercase;
 }
 
 .random_number input {
@@ -59,7 +62,8 @@ ul, li {
   font-size: 48px;
   text-transform: uppercase;
   margin: 20px;
-  font-family: "Major Mono Display";
+  font-family: 'Tourney', cursive;
+  font-weight: bold;
 }
 
 .bg .button {
@@ -387,3 +391,46 @@ ul, li {
   80%, 99.9% {
     margin-top: 30%;
     margin-left: 80%; } }
+
+    /* Modal */
+    .ReactModal__Overlay{
+      background-color: rgb(255 255 255 / 45%) !important;
+    }
+
+    .ReactModal__Content{
+      border: 1px solid #ecc70e !important;
+      background-image: url('./assest/6.jpeg') !important;
+      font-size: 24px;
+      background-size: cover !important;
+      padding: 10px !important;
+      border-radius: 8px !important;
+      font-family: "Montserrat";
+      font-size: 24px;
+      opacity: 0.95;
+    }
+    .close-btn{
+      display: flex;
+      justify-content: end;
+      cursor: pointer;
+      font-family: "Charmonman";
+      font-weight: bold;
+      font-size: 22px;
+      color:  #ff00009c;
+      /* color:  #333; */
+    }
+    .modal-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      margin-top: 80px;
+    }
+    .modal-content-text{
+      text-transform: uppercase;
+      font-weight: 600;
+      text-align: center;
+      font-size: 28px;
+      background: -webkit-linear-gradient(#0e0e0b, #eb1515);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }

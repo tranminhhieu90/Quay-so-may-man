@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import audioUrl from '../src/assest/nhac.mp3';
+import audioUrl from '../src/assest/xoso.mp3';
 import audioWinUrl from '../src/assest/chienthang.mp3';
+import Modal from 'react-modal';
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    height: 400,
+  },
+};
 
 function NumberAnimation(props) {
   return (
@@ -29,10 +42,9 @@ function Random(props) {
   const [loading, setLoading] = useState(false)
   const [showFirework, setShowFirework] = useState(false)
   const [playAudio, setPlayAudio] = useState(false)
-
+  const [modalIsOpen, setIsOpen] = useState(false);
   const audioSoxo = new Audio(audioUrl)
   const audioWin = new Audio(audioWinUrl)
-
   useEffect(() => {
     audioSoxo.addEventListener('ended', () => setPlayAudio(false));
     audioWin.addEventListener('ended', () => setPlayAudio(false));
@@ -63,9 +75,13 @@ function Random(props) {
           setShowFirework(true)
           getNumberReward(finalResult)
         } else {
-          console.log('trung rồi')
+          setIsOpen(true);
         }
-      }, 1000)
+      }, 38000)
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
   }
 
   return (
@@ -73,7 +89,7 @@ function Random(props) {
       <div style={{display: 'flex', justifyContent: 'end', marginRight: 20}}>
         <div className='logo'></div>
       </div>
-      <h3>Tổng Số Phiếu:</h3>
+      <h3>Tổng Số Phiếu</h3>
       <input
         style={{ marginBottom: 40, height: 30 }}
         type="number"
@@ -100,7 +116,18 @@ function Random(props) {
           <div className='button' onClick={handleClick}>Quay Thưởng</div>
         </div>
       </div>
-    
+      <Modal
+        isOpen={modalIsOpen}
+        style={customStyles}
+      >
+        <div className='close-btn' onClick={closeModal}><div>X</div></div>
+        <div className='modal-content'>
+          <div className='modal-content-text'>
+          <p>Lá thăm {resultNumber} đã có giải </p>
+          <p>Vui Lòng Quay Lại </p>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }
