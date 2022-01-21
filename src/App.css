@@ -28,7 +28,7 @@ ul, li {
   background: #f3f3f3;
   text-align: center;
   background: transparent;
-  border: 3px solid #cbcb1ce0;
+  /* border: 3px solid #cbcb1ce0; */
   border-radius: 8px;
   padding: 5px;
 }

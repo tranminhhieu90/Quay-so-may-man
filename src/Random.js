@@ -55,7 +55,7 @@ function Random(props) {
   const handleClick = () => {
     if (listNumber.length >= 5) return;
     if (loading) return;
-    if (total === 0) return;
+    if (total === "" || total === 0) return;
     setShowFirework(false)
     setPlayAudio(true)
     if (!playAudio) {
@@ -86,7 +86,7 @@ function Random(props) {
 
   return (
     <div className='random_number'>
-      <div style={{display: 'flex', justifyContent: 'end', marginRight: 20}}>
+      <div style={{display: 'flex', justifyContent: 'start', marginRight: 20}}>
         <div className='logo'></div>
       </div>
       <h3>Tổng Số Phiếu</h3>
@@ -94,6 +94,7 @@ function Random(props) {
         style={{ marginBottom: 40, height: 30 }}
         type="number"
         value={total}
+        max={200}
         onChange={(e) => {
          setTotal(e.target.value)
       }}/>
