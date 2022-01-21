@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Random from './Random';
+import RewardList from './RewardList';
 
 function App() {
+  const [numberArr, setNumberArr] = useState([])
+
+  const handleGetRewardNumber = (number) => {
+    setNumberArr(prev => {return [...prev, number] })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className='app'>
+        <Random getNumberReward={handleGetRewardNumber} listNumber={ numberArr}/>
+      <RewardList listNumber={ numberArr}/>
+      </div>
     </div>
   );
 }
