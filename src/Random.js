@@ -36,7 +36,6 @@ function NumberAnimation(props) {
       
 function Random(props) {
   const { getNumberReward, listNumber } = props;
-  console.log('listNumber',listNumber)
   const [total, setTotal] = useState(0)
   const [resultNumber, setResultNumber] = useState('')
   const [loading, setLoading] = useState(false)
@@ -56,6 +55,7 @@ function Random(props) {
   const handleClick = () => {
     if (listNumber.length >= 5) return;
     if (loading) return;
+    if (total === 0) return;
     setShowFirework(false)
     setPlayAudio(true)
     if (!playAudio) {
