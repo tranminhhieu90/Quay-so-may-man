@@ -81,7 +81,8 @@ function Random(props) {
   }
 
   const handleReSpin = () => {
-    if (listNumber.length >= 5) return;
+    console.log('listNumber',listNumber)
+    if (listNumber.length >= 5 || listNumber.length === 0 ) return;
     if (loading) return;
     if (total === "" || total === 0) return;
     setShowFirework(false)
@@ -105,7 +106,7 @@ function Random(props) {
         } else {
           setIsOpen(true);
         }
-      }, 2000)
+      }, 38000)
   }
 
   const closeModal = () => {
