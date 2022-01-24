@@ -35,7 +35,7 @@ function NumberAnimation(props) {
 };
       
 function Random(props) {
-  const { getNumberReward, listNumber } = props;
+  const { getNumberReward, listNumber, getAgainNumber } = props;
   const [total, setTotal] = useState(0)
   const [resultNumber, setResultNumber] = useState('')
   const [loading, setLoading] = useState(false)
@@ -80,6 +80,34 @@ function Random(props) {
       }, 38000)
   }
 
+  const handleReSpin = () => {
+    if (listNumber.length >= 5) return;
+    if (loading) return;
+    if (total === "" || total === 0) return;
+    setShowFirework(false)
+    setPlayAudio(true)
+    if (!playAudio) {
+      audioSoxo.play()
+    }
+    const result = Math.ceil(Math.random() * total);
+    const convertResult = `00${result}`
+    const finalResult = convertResult.substring(convertResult.length - 3);
+      setLoading(true)
+      setTimeout(() => {
+        setLoading(false)
+        audioSoxo.pause()
+        audioWin.play()
+        setPlayAudio(false)
+        if (!listNumber.includes(finalResult)) {
+          setResultNumber(finalResult)
+          setShowFirework(true)
+          getAgainNumber(finalResult)
+        } else {
+          setIsOpen(true);
+        }
+      }, 2000)
+  }
+
   const closeModal = () => {
     setIsOpen(false);
   }
@@ -110,10 +138,7 @@ function Random(props) {
           <div className='result_number'>{ loading? <NumberAnimation subClass="delay_2"/> : resultNumber ? resultNumber.split('')[2]: '0'}</div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 20 }}>
-          {/* <div className='button' onClick={() => {
-            setResultNumber('')
-            setShowFirework(false)
-          }} style={{background: 'gray'}}>Reset</div> */}
+          <div className='button' onClick={handleReSpin} style={{background: '#ffff008c'}}>Quay lại giải</div>
           <div className='button' onClick={handleClick}>Quay Thưởng</div>
         </div>
       </div>
